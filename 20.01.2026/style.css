@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a {
+    color: yellow;
+}
+
+h1{
+    display: flex;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.item-1 {
+    background-color: lightcoral;
+    width: 300px;
+    height: 300px;
+}
+.item-2 {
+    background-color: lightblue;
+    width: 300px;
+    height: 300px;
+}
+.item-3 {
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+}
+.item-4 {
+    background-color: lightpink;
+    width: 300px;
+    height: 300px;
+}
+.item-5 {
+    background-color: lightgray;
+    width: 300px;
+    height: 300px;
+}
+.item-6 {
+    background-color: lightyellow;
+    width: 300px;
+    height: 300px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    gap: 100px;
+    flex-wrap: wrap;
+    background-color: black;
+    height: 2500px;
+}   
