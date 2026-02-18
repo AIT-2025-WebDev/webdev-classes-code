@@ -1,23 +1,24 @@
 import { useEffect } from "react"
 import axios from "axios"
 import { CardImage } from "../../components/Card"
-import { Outlet } from "react-router-dom"
-import { useStore } from "../../store/store"
+import { Link, Outlet } from "react-router-dom"
+import { useQuery } from "@tanstack/react-query"
 
 const Posts = () => {
 
-    const { posts, setPosts } = useStore()
+    const getPosts = () => {
+        const res = axios.get('https://63ac4406da81ba97617f073c.mockapi.io/devices')
+            .then(res => res.data)
+        return res
+    }
 
-    useEffect(() => {
-        axios.get('https://63ac4406da81ba97617f073c.mockapi.io/devices')
-            .then(res => setPosts(res.data))
-    }, [setPosts])
-
-
+    const query = useQuery({ queryKey: ['devices'], queryFn: getPosts })
 
     return (
         <>
-            {posts.map(post => (
+            <Link to="/">Домой</Link>
+            <Link to="/posts/create">Создать пост</Link>
+            {query.data?.sort((b, a) => Date.parse(a.created_at) - Date.parse(b.created_at)).map(post => (
                 <CardImage key={post.id} post={post} />
             ))}
         </>

@@ -1,8 +1,6 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -15,18 +13,18 @@ export function CardImage({ post, showButton = true }) {
     <Card className="relative mx-auto max-w-lg pt-0 w-lg">
       <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
       <img
-        src={post?.image}  
-        alt={post?.model}
+        src={post?.images?.[0]?.url_large}
+        alt={post?.title}
         className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
       />
       <CardHeader>
-        <CardTitle>{post?.model}</CardTitle>
+        <CardTitle>{post?.title}</CardTitle>
         <CardDescription>
           {post?.description}
         </CardDescription>
       </CardHeader>
       <CardFooter>
-        {showButton && <Link to={`/posts/${post?.id}`}  className="w-full">View Post</Link>}
+        {showButton && <Link to={`/posts/${post?.id}`} className="w-full">View Post</Link>}
       </CardFooter>
     </Card>
   )
